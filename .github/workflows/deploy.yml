@@ -8,6 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: hello
+        run: |
+          echo "GITHUB_SHA: ${ env.GITHUB_SHA }"
 
       - name: Checkout source code
         uses: actions/checkout@v2
@@ -22,6 +25,6 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: docker-react
           environment_name: docker-react-environment
-          version_label: ${{ GITHUB_SHA }}
+          version_label: ${{ env.GITHUB_SHA }}
           region: us-east-1
           deployment_package: deploy.zip
