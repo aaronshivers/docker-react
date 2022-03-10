@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: hello
         run: |
-          echo "GITHUB_SHA: ${ env.GITHUB_SHA }"
+          echo "GITHUB_SHA: ${ GITHUB_SHA }"
 
       - name: Checkout source code
         uses: actions/checkout@v2
